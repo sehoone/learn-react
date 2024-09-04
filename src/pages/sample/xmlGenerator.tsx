@@ -10,6 +10,7 @@ export default function XmlGenerator() {
   const [fileInterfaces, setFileInterfaces] = useState<FileInterface[]>([]);
   const downloadLinkRef = useRef<HTMLAnchorElement | null>(null);
 
+  // 파일 선택 시 이벤트 핸들러. 선택한 파일들을 읽어서 인터페이스를 생성.
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
@@ -26,7 +27,7 @@ export default function XmlGenerator() {
             const dataCollection = xmlDoc.getElementsByTagName('w2:dataCollection')[0];
             let allInterfaces = '';
 
-            // Process w2:dataMap
+            // Process w2:dataMap. dataMap 태그(오브젝트)에 대한 인터페이스 생성
             const dataMaps = dataCollection.getElementsByTagName('w2:dataMap');
             for (let j = 0; j < dataMaps.length; j++) {
               const dataMap = dataMaps[j];
@@ -35,7 +36,7 @@ export default function XmlGenerator() {
               allInterfaces += generateObjectInterface(interfaceName, keys);
             }
 
-            // Process w2:dataList
+            // Process w2:dataList. dataList 태그(리스트)에 대한 인터페이스 생성
             const dataLists = dataCollection.getElementsByTagName('w2:dataList');
             for (let j = 0; j < dataLists.length; j++) {
               const dataList = dataLists[j];
@@ -45,6 +46,7 @@ export default function XmlGenerator() {
             }
 
             newFileInterfaces.push({ fileName: file.name, interfaceContent: allInterfaces });
+            
             setFileInterfaces([...newFileInterfaces]);
           }
         };
@@ -54,8 +56,10 @@ export default function XmlGenerator() {
     }
   };
 
+  // 객체 인터페이스 생성. dataMap 태그에 대한 인터페이스 생성
   const generateObjectInterface = (interfaceName: string, keys: HTMLCollectionOf<Element>): string => {
     let interfaceContent = `interface ${interfaceName} {\n`;
+    // dataMap 태그의 각 key에 대한 인터페이스 생성
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       const id = key.getAttribute('id');
@@ -67,8 +71,10 @@ export default function XmlGenerator() {
     return interfaceContent;
   };
 
+  // 배열 인터페이스 생성. dataList 태그에 대한 인터페이스 생성
   const generateArrayInterface = (interfaceName: string, columns: HTMLCollectionOf<Element>): string => {
     let interfaceContent = `interface ${interfaceName}Item {\n`;
+    // dataList 태그의 각 column에 대한 인터페이스 생성
     for (let i = 0; i < columns.length; i++) {
       const column = columns[i];
       const id = column.getAttribute('id');
@@ -81,6 +87,7 @@ export default function XmlGenerator() {
     return interfaceContent;
   };
 
+  // 데이터 타입 매핑
   const mapDataType = (dataType: string): string => {
     switch (dataType) {
       case 'number':
@@ -94,6 +101,7 @@ export default function XmlGenerator() {
     }
   };
 
+  // 인터페이스 파일 다운로드
   const downloadInterfaceFile = (fileName: string, interfaceContent: string) => {
     const baseFileName = fileName.replace('.xml', '');
     const blob = new Blob([interfaceContent], { type: 'text/plain;charset=utf-8' });
