@@ -2,7 +2,7 @@ import { lazy } from 'react';
 
 // project import
 
-const XmlGenerator = lazy(() => import('@/pages/sample/xmlGenerator'));
+const XmlGenerator = lazy(() => import('@/pages/sample/XmlGenerator'));
 
 // ==============================|| AUTH ROUTING ||============================== //
 

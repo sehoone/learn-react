@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './XmlGenerator.css'; // CSS 파일을 import 합니다.
+import './xmlGenerator.css';
 
 interface FileInterface {
   fileName: string;
@@ -109,6 +109,7 @@ export default function XmlGenerator() {
 
   return (
     <div className="xml-generator">
+      <h3>websquare xml data Generator</h3>
       <input type="file" multiple onChange={handleFileChange} />
       <div className="file-list">
         {fileInterfaces.map((fileInterface, index) => (
