@@ -1,0 +1,41 @@
+.xml-generator {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .file-list {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .file-name {
+    flex: 1;
+    padding-right: 10px;
+  }
+  
+  .download-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .download-button:hover {
+    background-color: #45a049;
+  }
