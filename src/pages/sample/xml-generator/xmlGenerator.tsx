@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './xmlGenerator.css';
+import './xmlGenerator.less';
 
 interface FileInterface {
   fileName: string;

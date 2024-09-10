@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import * as XLSX from 'xlsx';
-import './excelGenerator.css';
+import './excelGenerator.less';
 
 const ExcelGenerator = () => {
   const downloadLinkRef = useRef<HTMLAnchorElement>(null);
