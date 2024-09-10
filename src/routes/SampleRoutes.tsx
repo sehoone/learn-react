@@ -1,3 +1,8 @@
+import ConditionalComponent from '@/components/sample/ConditionalComponent';
+import EffectComponent from '@/components/sample/EffectComponent';
+import FormComponent from '@/components/sample/FormComponent';
+import ListComponent from '@/components/sample/ListComponent';
+import StateComponent from '@/components/sample/StateComponent';
 import { lazy } from 'react';
 
 // project import
@@ -18,7 +23,12 @@ const SampleRoutes = {
     {
       path: '/excel-generator',
       element: <ExcelGenerator />
-    }
+    },
+    { path: '/state', element: <StateComponent /> },
+    { path: '/effect', element: <EffectComponent /> },
+    { path: '/form', element: <FormComponent /> },
+    { path: '/list', element: <ListComponent /> },
+    { path: '/conditional', element: <ConditionalComponent /> },
   ]
 };
 
