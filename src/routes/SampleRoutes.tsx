@@ -1,3 +1,4 @@
+import SideBarLayout from '@/components/navigation/SideBarLayout';
 import ConditionalComponent from '@/components/sample/ConditionalComponent';
 import EffectComponent from '@/components/sample/EffectComponent';
 import FormComponent from '@/components/sample/FormComponent';
@@ -14,7 +15,7 @@ const ExcelGenerator = lazy(() => import('@/pages/sample/excel-generator/excelGe
 
 const SampleRoutes = {
   path: '/',
-  // element: <MinimalLayout />,
+  element: <SideBarLayout />,
   children: [
     {
       path: '/xml-generator',
