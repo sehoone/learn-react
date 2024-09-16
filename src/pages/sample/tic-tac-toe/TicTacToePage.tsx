@@ -3,19 +3,27 @@
 import './index.less';
 import Player from '@/components/tic-tac-toe/Player'
 import GameBoard from '@/components/tic-tac-toe/GameBoard';
+import { useState } from 'react';
+type PlayerSymbol = 'X' | 'O' | null;
 
-const ticTacToePage = () => {
+const TicTacToePage = () => {
+  const [activePlayer, setActivePlayer] = useState<PlayerSymbol>('X');
+
+  const handleSelectSquare = () => {
+    setActivePlayer((currActivePlayer) => currActivePlayer === 'X' ? 'O' : 'X');
+  }
+
   return (
     <main>
-      <div id="game-container">
-        <ol id="players">
-          <Player name="Player1" symbol='o' />
-          <Player name="Player1" symbol='x' />
+      <div id='game-container'>
+        <ol id='players' className='highlight-player'>
+          <Player name='Player1' symbol='X' isActive={activePlayer === 'X'} />
+          <Player name='Player1' symbol='O' isActive={activePlayer === 'O'} />
         </ol>
-        <GameBoard />
+        <GameBoard onSelectSquare={handleSelectSquare} activePlayerSymbol={activePlayer} />
       </div>
     </main>
   )
 }
 
-export default ticTacToePage
+export default TicTacToePage
