@@ -10,6 +10,7 @@ import { lazy } from 'react';
 
 const XmlGenerator = lazy(() => import('@/pages/sample/xml-generator/xmlGenerator'));
 const ExcelGenerator = lazy(() => import('@/pages/sample/excel-generator/excelGenerator'));
+const TicTacToePage = lazy(() => import('@/pages/sample/tic-tac-toe/TicTacToePage'));
 
 // ==============================|| AUTH ROUTING ||============================== //
 
@@ -30,6 +31,8 @@ const SampleRoutes = {
     { path: '/form', element: <FormComponent /> },
     { path: '/list', element: <ListComponent /> },
     { path: '/conditional', element: <ConditionalComponent /> },
+    { path: '/toc-tac-toe', element: <TicTacToePage /> }
+
   ]
 };
 
