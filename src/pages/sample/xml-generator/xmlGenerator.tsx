@@ -90,14 +90,14 @@ export default function XmlGenerator() {
   // 데이터 타입 매핑
   const mapDataType = (dataType: string): string => {
     switch (dataType) {
-      case 'number':
-        return 'number';
-      case 'text':
-        return 'string';
-      case 'date':
-        return 'Date';
-      default:
-        return 'any';
+    case 'number':
+      return 'number';
+    case 'text':
+      return 'string';
+    case 'date':
+      return 'Date';
+    default:
+      return 'any';
     }
   };
 

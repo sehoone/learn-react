@@ -20,25 +20,25 @@ const StyledBadge = styled.div<BadgeProps>`
 
   ${({ variant }) => {
     switch (variant) {
-      case 'info':
-        return `
+    case 'info':
+      return `
                 background-color: #048acd;
                 color: #fff;
                 `;
-      case 'success':
-        return `
+    case 'success':
+      return `
                 background-color: #0cbb34;
                 color: #fff;
 
                 `;
-      case 'danger':
-        return `
+    case 'danger':
+      return `
                 background-color: #fb3939;
                 color: #fff;
 
                 `;
-      case 'warning':
-        return `
+    case 'warning':
+      return `
                 background-color: #e25807;
                 color: #fff;
 

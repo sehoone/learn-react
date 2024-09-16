@@ -1,19 +1,19 @@
 import React from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu, menuClasses, MenuItemStyles } from 'react-pro-sidebar';
-import { Switch } from './components/Switch';
+// import { Switch } from './components/Switch';
 import { SidebarHeader } from './components/SidebarHeader';
-import { Diamond } from './icons/Diamond';
+// import { Diamond } from './icons/Diamond';
 import { BarChart } from './icons/BarChart';
-import { Global } from './icons/Global';
-import { InkBottle } from './icons/InkBottle';
-import { Book } from './icons/Book';
-import { Calendar } from './icons/Calendar';
-import { ShoppingCart } from './icons/ShoppingCart';
-import { Service } from './icons/Service';
+// import { Global } from './icons/Global';
+// import { InkBottle } from './icons/InkBottle';
+// import { Book } from './icons/Book';
+// import { Calendar } from './icons/Calendar';
+// import { ShoppingCart } from './icons/ShoppingCart';
+// import { Service } from './icons/Service';
 import { SidebarFooter } from './components/SidebarFooter';
-import { Badge } from './components/Badge';
+// import { Badge } from './components/Badge';
 import { Typography } from './components/Typography';
-import { PackageBadges } from './components/PackageBadges';
+// import { PackageBadges } from './components/PackageBadges';
 import { Link } from 'react-router-dom';
 
 type Theme = 'light' | 'dark';
@@ -65,27 +65,27 @@ const hexToRgba = (hex: string, alpha: number) => {
 };
 
 export const Playground: React.FC = () => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [collapsed] = React.useState(false);
   const [toggled, setToggled] = React.useState(false);
-  const [broken, setBroken] = React.useState(false);
-  const [rtl, setRtl] = React.useState(false);
-  const [hasImage, setHasImage] = React.useState(false);
-  const [theme, setTheme] = React.useState<Theme>('light');
+  // const [broken, setBroken] = React.useState(false);
+  const [rtl] = React.useState(false);
+  const [hasImage] = React.useState(false);
+  const [theme] = React.useState<Theme>('light');
 
-  // handle on RTL change event
-  const handleRTLChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRtl(e.target.checked);
-  };
+  // // handle on RTL change event
+  // const handleRTLChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setRtl(e.target.checked);
+  // };
 
-  // handle on theme change event
-  const handleThemeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTheme(e.target.checked ? 'dark' : 'light');
-  };
+  // // handle on theme change event
+  // const handleThemeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setTheme(e.target.checked ? 'dark' : 'light');
+  // };
 
-  // handle on image change event
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setHasImage(e.target.checked);
-  };
+  // // handle on image change event
+  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setHasImage(e.target.checked);
+  // };
 
   const menuItemStyles: MenuItemStyles = {
     root: {
@@ -127,7 +127,7 @@ export const Playground: React.FC = () => {
         collapsed={collapsed}
         toggled={toggled}
         onBackdropClick={() => setToggled(false)}
-        onBreakPoint={setBroken}
+        // onBreakPoint={setBroken}
         image="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
         rtl={rtl}
         breakPoint="md"
@@ -150,21 +150,26 @@ export const Playground: React.FC = () => {
             </div>
             <Menu menuItemStyles={menuItemStyles}>
               <SubMenu
-                label="Charts"
+                label="Sample pages"
                 icon={<BarChart />}
-                suffix={
-                  <Badge variant="danger" shape="circle">
-                    6
-                  </Badge>
-                }
+              // suffix={
+              //   <Badge variant="danger" shape="circle">
+              //     6
+              //   </Badge>
+              // }
               >
-                <MenuItem> Pie charts</MenuItem>
+                <MenuItem component={<Link to="/list" />}>
+                  list
+                </MenuItem>
                 <MenuItem component={<Link to="/state" />}>
                   state
                 </MenuItem>
                 <MenuItem component={<Link to="/xml-generator" />}> xml generator</MenuItem>
+                <MenuItem component={<Link to="/toc-tac-toe" />}>
+                  toc-tac-toe
+                </MenuItem>
               </SubMenu>
-              <SubMenu label="Maps" icon={<Global />}>
+              {/* <SubMenu label="Maps" icon={<Global />}>
                 <MenuItem> Google maps</MenuItem>
                 <MenuItem> Open street maps</MenuItem>
               </SubMenu>
@@ -188,10 +193,10 @@ export const Playground: React.FC = () => {
                 <MenuItem> Product</MenuItem>
                 <MenuItem> Orders</MenuItem>
                 <MenuItem> Credit card</MenuItem>
-              </SubMenu>
+              </SubMenu> */}
             </Menu>
 
-            <div style={{ padding: '0 24px', marginBottom: '8px', marginTop: '32px' }}>
+            {/* <div style={{ padding: '0 24px', marginBottom: '8px', marginTop: '32px' }}>
               <Typography
                 variant="body2"
                 fontWeight={600}
@@ -209,14 +214,14 @@ export const Playground: React.FC = () => {
               <MenuItem disabled icon={<Service />}>
                 Examples
               </MenuItem>
-            </Menu>
+            </Menu> */}
           </div>
           <SidebarFooter collapsed={collapsed} />
         </div>
       </Sidebar>
 
       <main>
-        <div style={{ padding: '16px 24px', color: '#44596e' }}>
+        {/* <div style={{ padding: '16px 24px', color: '#44596e' }}>
           <div style={{ marginBottom: '16px' }}>
             {broken && (
               <button className="sb-button" onClick={() => setToggled(!toggled)}>
@@ -262,7 +267,7 @@ export const Playground: React.FC = () => {
               <Switch id="image" checked={hasImage} onChange={handleImageChange} label="Image" />
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </div>
   );
