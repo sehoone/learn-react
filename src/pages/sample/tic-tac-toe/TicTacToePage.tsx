@@ -4,6 +4,7 @@ import './index.less';
 import Player from '@/components/tic-tac-toe/Player'
 import GameBoard from '@/components/tic-tac-toe/GameBoard';
 import { useState } from 'react';
+import GameLog from '@/components/tic-tac-toe/GameLog';
 export type PlayerSymbol = 'X' | 'O' | null;
 export interface Turn {
   square: { row: number; cell: number };
@@ -46,6 +47,7 @@ const TicTacToePage = () => {
         </ol>
         <GameBoard onSelectSquare={handleSelectSquare} turn={gameTurn} />
       </div>
+      <GameLog gameTurn={gameTurn} />
     </main>
   )
 }
