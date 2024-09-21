@@ -1,25 +1,28 @@
-import { Turn, PlayerSymbol } from '@/pages/sample/tic-tac-toe/TicTacToePage';
+import { PlayerSymbol } from '@/pages/sample/tic-tac-toe/TicTacToePage';
 
 // type PlayerSymbol = 'X' | 'O' | null;
 
-const initialGameBoard: PlayerSymbol[][] = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null]
-]
+// const initialGameBoard: PlayerSymbol[][] = [
+//   [null, null, null],
+//   [null, null, null],
+//   [null, null, null]
+// ]
 
 type Props = {
   onSelectSquare: (rowIndex: number, cellIndex: number) => void,
-  turn: Turn[]
+  board: PlayerSymbol[][]
 }
 
 const GameBoard = (prop: Props) => {
-  const gameBoard = initialGameBoard;
+  // const gameBoard = initialGameBoard;
+  // console.log(prop.turn);
 
-  for (const turn of prop.turn) {
-    const { row, cell } = turn.square;
-    gameBoard[row][cell] = turn.player;
-  }
+  // for (const turn of prop.turn) {
+  //   const { row, cell } = turn.square;
+  //   gameBoard[row][cell] = turn.player;
+  // }
+
+  // 상위 컴포넌트에서 상태를 관리하도록 변경
   // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
   // const handleSelectSquare = (rowIndex: number, cellIndex: number) => {
@@ -36,7 +39,7 @@ const GameBoard = (prop: Props) => {
 
   return (
     <ol id='game-board'>
-      {gameBoard.map((row, rowIndex) => (
+      {prop.board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((playerSymbol, cellIndex) => (
