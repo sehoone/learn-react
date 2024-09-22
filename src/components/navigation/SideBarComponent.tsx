@@ -168,6 +168,9 @@ export const Playground: React.FC = () => {
                 <MenuItem component={<Link to="/toc-tac-toe" />}>
                   toc-tac-toe
                 </MenuItem>
+                <MenuItem component={<Link to="/styled-login" />}>
+                  styled-login
+                </MenuItem>
               </SubMenu>
               {/* <SubMenu label="Maps" icon={<Global />}>
                 <MenuItem> Google maps</MenuItem>
